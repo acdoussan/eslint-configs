@@ -1,0 +1,63 @@
+{
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "google",
+    "plugin:node/recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "require-jsdoc-except"
+  ],
+  "rules": {
+    "brace-style": ["error", "allman"],
+    "indent": ["error", 2],
+    "lines-between-class-members": ["error", "always"],
+    "max-len": ["error", {"code": 100, "tabWidth": 2, "comments": 100}],
+    "no-tabs": ["error"],
+    "no-trailing-spaces": ["error"],
+    "no-var": ["error"],
+    "object-curly-spacing": ["error", "always"],
+    "object-property-newline": ["error", {"allowAllPropertiesOnSameLine": true}],
+    "prefer-const": ["error"],
+    "quote-props": ["error", "as-needed"],
+    "spaced-comment": ["error", "always", {"block": {"balanced": true}}],
+
+    "new-cap": [0],
+
+    "require-jsdoc": [0],
+    "require-jsdoc-except/require-jsdoc": ["error", {
+      "require": {
+        "FunctionDeclaration": true,
+        "MethodDefinition": true,
+        "ClassDeclaration": false,
+        "ArrowFunctionExpression": false,
+        "FunctionExpression": false
+      },
+      "ignore": [
+        "constructor"
+      ]
+    }]
+  },
+  "overrides": [{
+    "files": [
+      "**/*.test.js"
+    ],
+    "env": {
+      "jest/globals": true
+    },
+    "extends":[
+      "plugin:jest/recommended"
+    ]
+  }]
+}
